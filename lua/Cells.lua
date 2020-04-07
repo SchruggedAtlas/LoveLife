@@ -27,24 +27,24 @@ function Cells:evolve(cell)
     for j = 1, n do
       local count
       -- initialize the neighbor count
-      if cell2[i][j] == 0 then 
-        count = 0 
-      else count = -1 
+      if cell2[i][j] == 0 then
+        count = 0
+      else count = -1
       end
       -- count neighbors
       for x = -1, 1 do
         for y = -1, 1 do
-          if i+x >= 1 and i+x <= m and j+y >= 1 and j+y <= n and cell2[i+x][j+y] == 1 then 
-            count = count + 1 
+          if i+x >= 1 and i+x <= m and j+y >= 1 and j+y <= n and cell2[i+x][j+y] == 1 then
+            count = count + 1
           end
         end
       end
       -- apply life rules
-      if count < 2 or count > 3 then 
-        cell[i][j] = 0 
+      if count < 2 or count > 3 then
+        cell[i][j] = 0
       end
-      if count == 3 then 
-        cell[i][j] = 1 
+      if count == 3 then
+        cell[i][j] = 1
       end
     end
   end
@@ -87,12 +87,12 @@ function Cells:draw()
   local row_size = #self.cell_table
   local col_size = #self.cell_table[1]
   local sqr_size = self.cell_size - 1
-  love.graphics.setColor(0, 255, 0, 255)
+  love.graphics.setColor(0, 1, 0, .5)
   for i = 1, row_size do
     for j = 1, col_size do
       if self.cell_table[i][j] == 1 then
         love.graphics.rectangle("fill", self.cell_size*(i-1)+1,
-                                        self.cell_size*(j-1)+1, 
+                                        self.cell_size*(j-1)+1,
                                         sqr_size, sqr_size)
       end
     end

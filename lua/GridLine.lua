@@ -8,7 +8,7 @@ GridLine = class(
 )
 
 function GridLine:init()
-  self.color = {255,255,255,150}
+  self.color = {1,1,1,0.6}
 end
 
 function GridLine:setColor(color)

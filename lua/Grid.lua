@@ -16,22 +16,23 @@ function Grid:init(cell_size)
   self.cells:randomize(self.cols, self.rows, cell_size)
   self.hlines = {}
   self.vlines = {}
-  
+  self.color = {0,1,0,0.4}
+
   for i=1,self.rows,1
   do
       local ypos = i*cell_size
       gline = GridLine()
       gline:setHline(ypos)
-      gline:setColor({0,255,0,100})
+      gline:setColor(self.color)
       table.insert(self.hlines,gline)
   end
-  
+
   for i=1,self.cols,1
   do
     local xpos = i*cell_size
     gline = GridLine()
     gline:setVline(xpos)
-    gline:setColor({0,255,0,100})
+    gline:setColor(self.color)
     table.insert(self.vlines,gline)
   end
 end
